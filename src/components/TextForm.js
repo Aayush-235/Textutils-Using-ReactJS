@@ -12,6 +12,7 @@ export default function TextForm(props) {
         }
         setText(newText);  // Update the state variable Text with the new uppercase text
         props.showtAlert("Converted to Uppercase", "success");
+        console.log("object")
     }
 
 
