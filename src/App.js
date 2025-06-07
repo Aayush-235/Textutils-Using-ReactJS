@@ -2,13 +2,14 @@ import './App.css';
 import Alert from './components/Alert.js';
 import Navbar from './components/Navbar.js';
 import TextForm from './components/TextForm.js';
-// import About from './components/About.js';
+import About from './components/About.js';
 import React, { useState } from 'react';
-// import {
-//   BrowserRouter as Router,
-//   Routes,  // Switch is deprecated, use Routes instead
-//   Route,
-// } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,  // Switch is deprecated, use Routes instead
+  Route,
+  
+} from "react-router-dom";
 
 
 function App() {
@@ -49,20 +50,19 @@ function App() {
   }
   return (
     <>
-      {/* <Router> */}
+      <Router>
         <Navbar title="Textutils" aboutText="About Us" mode={mode} toggleMode={toggleMode} />
         <Alert alert={alert} />
         <div className="container my-3">
-          {/* <Routes> */}
+          <Routes>
             {/* /user ---> components 1
           /user/aboutus ---> components 2 */}
-            {/* <Route exact path="/about" element={<About showtAlert={showtAlert} />} /> */}
-            {/* <Route exact path="/" element={} /> */}
-            <TextForm showtAlert={showtAlert} heading="Enter the text to analyze below" mode={mode} />
-          {/* </Routes> */}
+            <Route exact path="/about" element={<About showtAlert={showtAlert} />} />
+            <Route exact path="/" element={<TextForm showtAlert={showtAlert} heading="Enter the text to analyze below" mode={mode} />} />
+          </Routes>
 
         </div>
-      {/* </Router> */}
+      </Router>
     </>
 
   );

@@ -1,5 +1,4 @@
 {
-  "homepage": "https://Aayush-235.github.io/Textutils-Using-ReactJS",
   "name": "textutils",
   "version": "0.1.0",
   "private": true,
@@ -8,7 +7,6 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
-    "gh-pages": "^6.3.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.2",
