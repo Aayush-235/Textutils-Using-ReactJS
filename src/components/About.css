@@ -1,0 +1,45 @@
+/* Base container */
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  border-radius: 16px;
+  padding: 30px;
+  transition: all 0.3s ease-in-out;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Dark mode styles applied through inline mystyle prop */
+.dark-mode {
+  background-color: #121212 !important;
+  color: #e0e0e0 !important;
+}
+
+.dark-mode .accordion-button {
+  background-color: #1e1e1e !important;
+  color: #f8f9fa !important;
+}
+
+.dark-mode .accordion-body {
+  background-color: #1e1e1e !important;
+  color: #dcdcdc !important;
+}
+
+.dark-mode .accordion-button:not(.collapsed) {
+  background-color: #2c2c2c !important;
+  color: #66b2ff !important;
+}
+
+/* Button */
+button.btn-primary {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  background-color: #007bff;
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
