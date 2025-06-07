@@ -4,11 +4,11 @@ import Navbar from './components/Navbar.js';
 import TextForm from './components/TextForm.js';
 // import About from './components/About.js';
 import React, { useState } from 'react';
-import {
-  BrowserRouter as Router,
-  Routes,  // Switch is deprecated, use Routes instead
-  Route,
-} from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   Routes,  // Switch is deprecated, use Routes instead
+//   Route,
+// } from "react-router-dom";
 
 
 function App() {
