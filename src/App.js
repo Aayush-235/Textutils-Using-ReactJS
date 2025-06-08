@@ -8,7 +8,7 @@ import {
   BrowserRouter as Router,
   Routes,  // Switch is deprecated, use Routes instead
   Route,
-  
+  //Link    
 } from "react-router-dom";
 
 
@@ -57,7 +57,7 @@ function App() {
           <Routes>
             {/* /user ---> components 1
           /user/aboutus ---> components 2 */}
-            <Route exact path="/about" element={<About showtAlert={showtAlert} />} />
+            <Route exact path="/about" element={<About showtAlert={showtAlert}  mode={mode}/>} />
             <Route exact path="/" element={<TextForm showtAlert={showtAlert} heading="Enter the text to analyze below" mode={mode} />} />
           </Routes>
 
