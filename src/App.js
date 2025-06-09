@@ -26,15 +26,20 @@ function App() {
     }, 3000);
   }
 
+
+
   const toggleMode = () => {
+
     if (mode === 'dark') {
       setMode('light');
       document.body.style.backgroundColor = 'white';
       showtAlert("Light mode has been enabled", "success");
       // document.title = "TextUtils - Light Mode";
+
+
       // setTimeout(() => {
       //   document.title = "TextUtils install now";
-      // }, 2000);
+      // }, 2000);          
       // setTimeout(() => {
       //   document.title = "TextUtils have found some viruses";
       // }, 1500);
@@ -47,6 +52,9 @@ function App() {
 
 
     }
+
+
+
   }
   return (
     <>
@@ -57,7 +65,7 @@ function App() {
           <Routes>
             {/* /user ---> components 1
           /user/aboutus ---> components 2 */}
-            <Route exact path="/about" element={<About showtAlert={showtAlert}  mode={mode}/>} />
+            <Route exact path="/about" element={<About showtAlert={showtAlert} mode={mode} />} />
             <Route exact path="/" element={<TextForm showtAlert={showtAlert} heading="Try TextUtils - Word Counter , Character Counter, Remove Extra Spaces" mode={mode} />} />
           </Routes>
 
