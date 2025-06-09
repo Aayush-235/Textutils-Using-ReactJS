@@ -3,25 +3,28 @@ import React, { useState } from 'react'
 
 export default function TextForm(props) {
 
+
+    const disabled = () => {
+        if (Text.length === 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
     const handleUpClick = () => {
         // console.log("Uppercase was clicked");
         let newText = Text.toUpperCase();  // Convert the text to uppercase
-        if (newText === "") {
-            alert("Please enter some text to convert to Uppercase");
-            return;
-        }
+
         setText(newText);  // Update the state variable Text with the new uppercase text
         props.showtAlert("Converted to Uppercase", "success");
-       
+
     }
 
 
     const handleLpClick = () => {
         let newText = Text.toLowerCase();
-        if (newText === "") {
-            alert("Please enter some text to convert to Lowercase");
-            return;
-        }
+
         setText(newText);
         props.showtAlert("Converted to Lowercase", "success");
     }
@@ -32,11 +35,15 @@ export default function TextForm(props) {
         return words.length;
     }
 
+    const timeforRead = () => {
+        let time = Text.split(/\s+/);
+        time = time.filter((e) => e.trim().length > 0);
+        let totaltime = 0.008 * time.length;
+        return totaltime;
+    }
+
     const handleclearclick = () => {
-        if (Text === "") {
-            alert("Your Textarea is already empty");
-            return;
-        }
+
 
         let newText = ''
 
@@ -46,10 +53,7 @@ export default function TextForm(props) {
     }
 
     const handletrimclick = () => {
-        if (Text === "") {
-            alert("Please enter some text to remove extra spaces");
-            return;
-        }
+
         // let newText = Text.replace(/\s+/g, ' ').trim();
         let newText = Text.split(/\s+/);
 
@@ -74,10 +78,7 @@ export default function TextForm(props) {
 
     const reversalText = () => {
 
-        if (Text === "") {
-            alert("Please enter some text to reverse");
-            return;
-        }
+
         let newText = Text.split("").reverse().join("");
 
         setText(newText);
@@ -86,13 +87,11 @@ export default function TextForm(props) {
 
 
     const TextCopy = () => {
-        if (Text === "") {
-            alert("Please enter some text to copy");
-            return;
-        }
+
         let textCopy = document.getElementById("myBox")
         textCopy.select();
-        navigator.clipboard.writeText(textCopy.value); 
+        navigator.clipboard.writeText(textCopy.value);
+        document.getSelection().removeAllRanges();
         props.showtAlert("Text Copied", "success");
     }
 
@@ -111,22 +110,22 @@ export default function TextForm(props) {
     return (
         <>
 
-            <div className='container' style={{color : props.mode === 'dark' ? 'white' : '#042743'}}>
-                <h1 >{props.heading}</h1>
+            <div className='container' style={{ color: props.mode === 'dark' ? 'white' : '#042743' }}>
+                <h1 className='my-2 mx-2'>{props.heading}</h1>
                 <div className="mb-3">
-                    <textarea className="form-control" value={Text} onChange={handleOnChnage} style={{backgroundColor : props.mode === 'dark' ? '#2f282f' : 'white', color : props.mode === 'dark' ? 'white' : 'black'}}id="myBox" rows="8"></textarea>
-                    <button className="btn btn-primary mx-2 my-2" onClick={handleUpClick} >Convert to Uppercase</button>
-                    <button className="btn btn-secondary mx-2 my-2" onClick={handleLpClick}>Convert to Lowercase</button>
-                    <button className="btn btn-danger mx-2 my-2" onClick={handleclearclick}>Clear Textarea</button>
-                    <button className="btn btn-dark mx-2 my-2" onClick={handletrimclick}>Remove Extra Spaces</button>
-                    <button className="btn btn-info mx-2 my-2" onClick={reversalText}>Text Reversal</button>
-                    <button className="btn btn-primary mx-2 my-2" onClick={TextCopy}>Copy Text</button>
+                    <textarea className="form-control" value={Text} onChange={handleOnChnage} style={{ backgroundColor: props.mode === 'dark' ? '#13466e ' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }} id="myBox" rows="8"></textarea>
+                    <button disabled={disabled()} className="btn btn-primary mx-2 my-2" onClick={handleUpClick} >Convert to Uppercase</button>
+                    <button disabled={disabled()} className="btn btn-secondary mx-2 my-2" onClick={handleLpClick}>Convert to Lowercase</button>
+                    <button disabled={disabled()} className="btn btn-danger mx-2 my-2" onClick={handleclearclick}>Clear Textarea</button>
+                    <button disabled={disabled()} className="btn btn-dark mx-2 my-2" onClick={handletrimclick}>Remove Extra Spaces</button>
+                    <button disabled={disabled()} className="btn btn-info mx-2 my-2" onClick={reversalText}>Text Reversal</button>
+                    <button disabled={disabled()} className="btn btn-primary mx-2 my-2" onClick={TextCopy}>Copy Text</button>
                 </div>
             </div>
-            <div className="container" style={{color : props.mode === 'dark' ? 'white' : '#042743'}}>
+            <div className="container" style={{ color: props.mode === 'dark' ? 'white' : '#042743' }}>
                 <h1>Your Text Summry!!!</h1>
                 <p>{wordCount()} words and {Text.length} characters</p>
-                <p>{0.008 * Text.split(" ").length} Minute for read the text</p>
+                <p>{timeforRead()} Minute for read the text</p>
                 <p>Sentences Count : {countSentences()}</p>
                 <p>Paragraph Count : {countParagraph()}</p>
                 <h2>Preview</h2>
